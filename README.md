@@ -15,7 +15,7 @@ public void GetOrAdd_Guid_ReturnsExpectedResult() {
     var cacheKey = "SomethingInTheCache";
     var expectedResult = Guid.NewGuid().ToString();
 	
-	_cacheMock = MockHelper.CreateMock();
+    _cacheMock = MockHelper.CreateMock();
     _cacheMock.SetUpItem(cacheKey, expectedResult);
 
     var actualResult = _mockedCache.GetOrAdd<string>(cacheKey, () => expectedResult, DateTimeOffset.Now.AddMinutes(30));
