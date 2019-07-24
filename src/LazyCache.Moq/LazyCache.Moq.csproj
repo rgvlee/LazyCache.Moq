@@ -8,7 +8,7 @@
 If you want to mock the cache rather than use the fake provided by LazyCache, this library contains the moq set ups that you'll need to get going.</Description>
     <Copyright>Copyright (c) 2019 Lee Anderson</Copyright>
     <Authors>rgvlee</Authors>
-    <PackageLicenseUrl>https://github.com/rgvlee/LazyCache.Moq/blob/master/LICENCE</PackageLicenseUrl>
+    <PackageLicenseUrl>https://github.com/rgvlee/LazyCache.Moq/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/rgvlee/LazyCache.Moq/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/rgvlee/LazyCache.Moq/</RepositoryUrl>
     <PackageTags>LazyCache lazy cache moq mock mocking test testing</PackageTags>
