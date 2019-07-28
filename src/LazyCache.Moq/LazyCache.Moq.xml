@@ -44,15 +44,15 @@
             Extensions for mocks.
             </summary>
         </member>
-        <member name="M:LazyCache.Moq.Extensions.MockExtensions.SetUpCacheItem``1(Moq.Mock{LazyCache.IAppCache},System.String,``0)">
+        <member name="M:LazyCache.Moq.Extensions.MockExtensions.SetUpCacheEntry``1(Moq.Mock{LazyCache.IAppCache},System.String,``0)">
             <summary>
-            Sets up a cache item.
+            Sets up a cache entry.
             </summary>
-            <typeparam name="T">The cache item type.</typeparam>
-            <param name="cacheMock">The cache mock instance.</param>
-            <param name="key">The cache item key.</param>
-            <param name="item">The cache item factory.</param>
-            <returns>The cache item.</returns>
+            <typeparam name="T">The cache entry value type.</typeparam>
+            <param name="cachingServiceMock">The caching service mock instance.</param>
+            <param name="key">The cache entry key.</param>
+            <param name="value">The cache entry value.</param>
+            <returns>The cache entry value.</returns>
         </member>
         <member name="T:LazyCache.Moq.Extensions.TypeExtensions">
             <summary>
@@ -65,23 +65,6 @@
             </summary>
             <param name="type">The type instance.</param>
             <returns>The default value for the specified type.</returns>
-        </member>
-        <member name="T:LazyCache.Moq.Helpers.MockHelper">
-            <summary>
-            Helper for mocks.
-            </summary>
-        </member>
-        <member name="M:LazyCache.Moq.Helpers.MockHelper.CreateLazyCacheMock">
-            <summary>
-            Creates a lazy cache mock.
-            </summary>
-            <returns>A lazy cache mock.</returns>
-        </member>
-        <member name="M:LazyCache.Moq.Helpers.MockHelper.GetMockedLazyCache">
-            <summary>
-            Gets a mocked lazy cache.
-            </summary>
-            <returns>A mocked lazy cache.</returns>
         </member>
         <member name="T:LazyCache.Moq.LazyCacheDefaultValueProvider">
             <summary>
@@ -101,6 +84,23 @@
                 if GetOrAdd or GetOrAddAsync was invoked the addItemFactory result will be returned;
                 otherwise the default value for the specified type will be returned.
             </returns>
+        </member>
+        <member name="T:LazyCache.Moq.MockFactory">
+            <summary>
+            Factory for creating mock/mocked instances.
+            </summary>
+        </member>
+        <member name="M:LazyCache.Moq.MockFactory.CreateCachingServiceMock">
+            <summary>
+            Creates a caching service mock.
+            </summary>
+            <returns>A caching service mock.</returns>
+        </member>
+        <member name="M:LazyCache.Moq.MockFactory.CreateMockedCachingService">
+            <summary>
+            Creates a mocked caching service.
+            </summary>
+            <returns>A mocked caching service.</returns>
         </member>
     </members>
 </doc>

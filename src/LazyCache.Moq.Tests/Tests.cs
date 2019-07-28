@@ -2,7 +2,6 @@ using System;
 using System.Threading.Tasks;
 using LazyCache.Mocks;
 using LazyCache.Moq.Extensions;
-using LazyCache.Moq.Helpers;
 using Microsoft.Extensions.Caching.Memory;
 using Moq;
 using NUnit.Framework;
@@ -15,8 +14,8 @@ namespace LazyCache.Moq.Tests {
             var cacheKey = "SomethingInTheCache";
             var expectedResult = Guid.NewGuid().ToString();
 
-            var cacheMock = MockHelper.CreateLazyCacheMock();
-            cacheMock.SetUpCacheItem(cacheKey, expectedResult);
+            var cacheMock = MockFactory.CreateCachingServiceMock();
+            cacheMock.SetUpCacheEntry(cacheKey, expectedResult);
             var mockedCache = cacheMock.Object;
 
             var actualResult = mockedCache.GetOrAdd(cacheKey, () => expectedResult, DateTimeOffset.Now.AddMinutes(30));
@@ -29,8 +28,8 @@ namespace LazyCache.Moq.Tests {
             var cacheKey = "SomethingInTheCache";
             var expectedResult = Guid.NewGuid().ToString();
 
-            var cacheMock = MockHelper.CreateLazyCacheMock();
-            cacheMock.SetUpCacheItem(cacheKey, expectedResult);
+            var cacheMock = MockFactory.CreateCachingServiceMock();
+            cacheMock.SetUpCacheEntry(cacheKey, expectedResult);
             var mockedCache = cacheMock.Object;
 
             var actualResult = await mockedCache.GetOrAddAsync(cacheKey, () => Task.FromResult(expectedResult));
@@ -42,7 +41,7 @@ namespace LazyCache.Moq.Tests {
         public void GetWithNoSetUp_ReturnsNull() {
             var cacheKey = "SomethingInTheCache";
 
-            var cacheMock = MockHelper.CreateLazyCacheMock();
+            var cacheMock = MockFactory.CreateCachingServiceMock();
             var mockedCache = cacheMock.Object;
 
             var actualResult = mockedCache.Get<string>(cacheKey);
@@ -55,7 +54,7 @@ namespace LazyCache.Moq.Tests {
             var cacheKey = "SomethingInTheCache";
             var expectedResult = Guid.NewGuid().ToString();
 
-            var cacheMock = MockHelper.CreateLazyCacheMock();
+            var cacheMock = MockFactory.CreateCachingServiceMock();
             cacheMock.SetReturnsDefault(expectedResult);
             var mockedCache = cacheMock.Object;
 
@@ -69,7 +68,7 @@ namespace LazyCache.Moq.Tests {
             var cacheKey = "SomethingInTheCache";
             var expectedResult = Guid.NewGuid().ToString();
 
-            var cacheMock = MockHelper.CreateLazyCacheMock();
+            var cacheMock = MockFactory.CreateCachingServiceMock();
             var mockedCache = cacheMock.Object;
 
             var actualResult = mockedCache.GetOrAdd(cacheKey, () => expectedResult, DateTimeOffset.Now.AddMinutes(30));
@@ -85,7 +84,7 @@ namespace LazyCache.Moq.Tests {
             var cacheKey = "SomethingInTheCache";
             var expectedResult = new TestObject();
 
-            var cacheMock = MockHelper.CreateLazyCacheMock();
+            var cacheMock = MockFactory.CreateCachingServiceMock();
             var mockedCache = cacheMock.Object;
 
             var actualResult = mockedCache.GetOrAdd(cacheKey, () => expectedResult, DateTimeOffset.Now.AddMinutes(30));
@@ -101,7 +100,7 @@ namespace LazyCache.Moq.Tests {
             var cacheKey = "SomethingInTheCache";
             var expectedResult = Guid.NewGuid().ToString();
 
-            var cacheMock = MockHelper.CreateLazyCacheMock();
+            var cacheMock = MockFactory.CreateCachingServiceMock();
             var mockedCache = cacheMock.Object;
 
             var actualResult = await mockedCache.GetOrAddAsync(cacheKey, () => Task.FromResult(expectedResult));
@@ -114,7 +113,7 @@ namespace LazyCache.Moq.Tests {
             var cacheKey = "SomethingInTheCache";
             var expectedResult = new TestObject();
 
-            var cacheMock = MockHelper.CreateLazyCacheMock();
+            var cacheMock = MockFactory.CreateCachingServiceMock();
             var mockedCache = cacheMock.Object;
 
             var actualResult = await mockedCache.GetOrAddAsync(cacheKey, () => Task.FromResult(expectedResult));
@@ -129,7 +128,7 @@ namespace LazyCache.Moq.Tests {
             var expectedResult2 = new TestObject();
             var expectedResult3 = default(TestObject);
 
-            var cacheMock = MockHelper.CreateLazyCacheMock();
+            var cacheMock = MockFactory.CreateCachingServiceMock();
             var mockedCache = cacheMock.Object;
 
             var actualResult1 = mockedCache.Get<TestObject>(cacheKey);
@@ -155,8 +154,8 @@ namespace LazyCache.Moq.Tests {
             var cacheKey = "SomethingInTheCache";
             var expectedResult = new TestObject();
 
-            var cacheMock = MockHelper.CreateLazyCacheMock();
-            cacheMock.SetUpCacheItem(cacheKey, expectedResult);
+            var cacheMock = MockFactory.CreateCachingServiceMock();
+            cacheMock.SetUpCacheEntry(cacheKey, expectedResult);
             var mockedCache = cacheMock.Object;
             
             var actualResult1 = mockedCache.Get<TestObject>(cacheKey);
@@ -178,7 +177,7 @@ namespace LazyCache.Moq.Tests {
             var cacheKey = "SomethingInTheCache";
             var expectedResult = Guid.NewGuid().ToString();
 
-            var mockedCache = MockHelper.GetMockedLazyCache();
+            var mockedCache = MockFactory.CreateMockedCachingService();
             
             var actualResult = mockedCache.GetOrAdd(cacheKey, () => expectedResult, DateTimeOffset.Now.AddMinutes(30));
 

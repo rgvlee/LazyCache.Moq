@@ -33,7 +33,7 @@ public void MinimumViableInterface_Guid_ReturnsExpectedResult() {
     var cacheKey = "SomethingInTheCache";
     var expectedResult = Guid.NewGuid().ToString();
 
-    var mockedCache = MockHelper.GetMockedLazyCache();
+    var mockedCache = MockFactory.CreateMockedCachingService();
             
     var actualResult = mockedCache.GetOrAdd(cacheKey, () => expectedResult, DateTimeOffset.Now.AddMinutes(30));
 
@@ -50,7 +50,7 @@ public void GetOrAddWithNoSetUp_TestObject_ReturnsExpectedResult() {
     var cacheKey = "SomethingInTheCache";
     var expectedResult = new TestObject();
 
-    var cacheMock = MockHelper.CreateLazyCacheMock();
+    var cacheMock = MockFactory.CreateCachingServiceMock();
     var mockedCache = cacheMock.Object;
 
     var actualResult = mockedCache.GetOrAdd(cacheKey, () => expectedResult, DateTimeOffset.Now.AddMinutes(30));
@@ -71,8 +71,8 @@ public void GetOrAddWithSetUp_Guid_ReturnsExpectedResult() {
     var cacheKey = "SomethingInTheCache";
     var expectedResult = Guid.NewGuid().ToString();
 
-    var cacheMock = MockHelper.CreateLazyCacheMock();
-    cacheMock.SetUpCacheItem(cacheKey, expectedResult);
+    var cacheMock = MockFactory.CreateCachingServiceMock();
+    cacheMock.SetUpCacheEntry(cacheKey, expectedResult);
     var mockedCache = cacheMock.Object;
 
     var actualResult = mockedCache.GetOrAdd(cacheKey, () => expectedResult, DateTimeOffset.Now.AddMinutes(30));
