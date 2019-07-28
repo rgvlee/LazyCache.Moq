@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LazyCache.Moq</name>
+    </assembly>
+    <members>
+        <member name="T:LazyCache.Moq.CacheEntryFake">
+            <summary>
+            A fake cache entry used to obtain a result from an addItemFactory parameter.
+            </summary>
+        </member>
+        <member name="M:LazyCache.Moq.CacheEntryFake.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="P:LazyCache.Moq.CacheEntryFake.Key">
+            <inheritdoc />
+        </member>
+        <member name="P:LazyCache.Moq.CacheEntryFake.Value">
+            <inheritdoc />
+        </member>
+        <member name="P:LazyCache.Moq.CacheEntryFake.AbsoluteExpiration">
+            <inheritdoc />
+        </member>
+        <member name="P:LazyCache.Moq.CacheEntryFake.AbsoluteExpirationRelativeToNow">
+            <inheritdoc />
+        </member>
+        <member name="P:LazyCache.Moq.CacheEntryFake.SlidingExpiration">
+            <inheritdoc />
+        </member>
+        <member name="P:LazyCache.Moq.CacheEntryFake.ExpirationTokens">
+            <inheritdoc />
+        </member>
+        <member name="P:LazyCache.Moq.CacheEntryFake.PostEvictionCallbacks">
+            <inheritdoc />
+        </member>
+        <member name="P:LazyCache.Moq.CacheEntryFake.Priority">
+            <inheritdoc />
+        </member>
+        <member name="P:LazyCache.Moq.CacheEntryFake.Size">
+            <inheritdoc />
+        </member>
+        <member name="T:LazyCache.Moq.Extensions.MockExtensions">
+            <summary>
+            Extensions for mocks.
+            </summary>
+        </member>
+        <member name="M:LazyCache.Moq.Extensions.MockExtensions.SetUpCacheItem``1(Moq.Mock{LazyCache.IAppCache},System.String,``0)">
+            <summary>
+            Sets up a cache item.
+            </summary>
+            <typeparam name="T">The cache item type.</typeparam>
+            <param name="cacheMock">The cache mock instance.</param>
+            <param name="key">The cache item key.</param>
+            <param name="item">The cache item factory.</param>
+            <returns>The cache item.</returns>
+        </member>
+        <member name="T:LazyCache.Moq.Extensions.TypeExtensions">
+            <summary>
+            Extensions for types.
+            </summary>
+        </member>
+        <member name="M:LazyCache.Moq.Extensions.TypeExtensions.GetDefaultValue(System.Type)">
+            <summary>
+            Gets the default value for the specified type.
+            </summary>
+            <param name="type">The type instance.</param>
+            <returns>The default value for the specified type.</returns>
+        </member>
+        <member name="T:LazyCache.Moq.Helpers.MockHelper">
+            <summary>
+            Helper for mocks.
+            </summary>
+        </member>
+        <member name="M:LazyCache.Moq.Helpers.MockHelper.CreateLazyCacheMock">
+            <summary>
+            Creates a lazy cache mock.
+            </summary>
+            <returns>A lazy cache mock.</returns>
+        </member>
+        <member name="M:LazyCache.Moq.Helpers.MockHelper.GetMockedLazyCache">
+            <summary>
+            Gets a mocked lazy cache.
+            </summary>
+            <returns>A mocked lazy cache.</returns>
+        </member>
+        <member name="T:LazyCache.Moq.LazyCacheDefaultValueProvider">
+            <summary>
+            Default value provider for methods that have not been set up on a lazy cache mock.
+            </summary>
+        </member>
+        <member name="M:LazyCache.Moq.LazyCacheDefaultValueProvider.GetDefaultValue(System.Type,Moq.Mock)">
+            <summary>
+                Checks the last method invocation on the mock;
+                if GetOrAdd or GetOrAddAsync was invoked the addItemFactory result will be returned;
+                otherwise the default value for the specified type will be returned.
+            </summary>
+            <param name="type">The type of the requested default value.</param>
+            <param name="mock">The mock on which an unexpected invocation has occurred.</param>
+            <returns>
+                Checks the last method invocation on the mock;
+                if GetOrAdd or GetOrAddAsync was invoked the addItemFactory result will be returned;
+                otherwise the default value for the specified type will be returned.
+            </returns>
+        </member>
+    </members>
+</doc>
