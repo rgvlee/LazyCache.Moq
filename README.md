@@ -9,7 +9,7 @@ Yes, LazyCache does provide the MockCachingService class for unit testing. It wo
 If you're using Get\<T> you're out of luck. You'll get nulls.
 
 LazyCache.Moq is the cake and eat it too solution. It provides:
-- out of the box functionality if you are only using GetOrAdd and GetOrAddAsync. No explicit set up required, it just works.
+- Out of the box functionality if you are only using GetOrAdd and GetOrAddAsync. No explicit set up required, it just works.
 - If you do need support for other methods e.g., Get\<T>, use the included fluent extension method to do so.
 - Access to all good stuff that Moq provides such as ```Verify```. 
 
