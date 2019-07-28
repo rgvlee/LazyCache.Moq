@@ -33,9 +33,9 @@ public void MinimumViableInterface_Guid_ReturnsExpectedResult() {
     var cacheKey = "SomethingInTheCache";
     var expectedResult = Guid.NewGuid().ToString();
 
-    var cacheMock = MockHelper.GetMockedLazyCache();
-    
-    var actualResult = cacheMock.GetOrAdd(cacheKey, () => expectedResult, DateTimeOffset.Now.AddMinutes(30));
+    var mockedCache = MockHelper.GetMockedLazyCache();
+            
+    var actualResult = mockedCache.GetOrAdd(cacheKey, () => expectedResult, DateTimeOffset.Now.AddMinutes(30));
 
     Assert.AreSame(expectedResult, actualResult);
 }
