@@ -3,9 +3,20 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Caching.Memory;
 using Moq;
 
-namespace LazyCache.Moq {
+namespace LazyCache.Moq.Extensions {
+    /// <summary>
+    /// Extensions for mocks.
+    /// </summary>
     public static class MockExtensions {
-        public static Mock<IAppCache> SetUpItem<T>(this Mock<IAppCache> cacheMock, string key, T item) {
+        /// <summary>
+        /// Sets up a cache item.
+        /// </summary>
+        /// <typeparam name="T">The cache item type.</typeparam>
+        /// <param name="cacheMock">The cache mock instance.</param>
+        /// <param name="key">The cache item key.</param>
+        /// <param name="item">The cache item factory.</param>
+        /// <returns>The cache item.</returns>
+        public static Mock<IAppCache> SetUpCacheItem<T>(this Mock<IAppCache> cacheMock, string key, T item) {
             Console.WriteLine($"Setting up cache item '{key}': '{item.ToString()}'");
 
             cacheMock.Setup(m => m.Add<T>(
