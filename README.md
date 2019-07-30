@@ -1,4 +1,7 @@
 # LazyCache.Moq
+
+## This repo has moved to [LazyCache.Testing](https://github.com/rgvlee/LazyCache.Testing)
+
 __*A mocking library for LazyCache*__
 
 If you want to mock the cache rather than use the built-in fake provided by LazyCache, this is the library you need.
