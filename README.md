@@ -1,6 +1,6 @@
 # LazyCache.Moq
 
-## This repo has moved to [LazyCache.Testing](https://github.com/rgvlee/LazyCache.Testing)
+# This repo has moved to [LazyCache.Testing](https://github.com/rgvlee/LazyCache.Testing)
 
 __*A mocking library for LazyCache*__
 
@@ -48,7 +48,7 @@ public void MinimumViableInterface_Guid_ReturnsExpectedResult() {
 No problem. Use the mock helper to create the mock. At this point it's a Mock\<IAppCache> for you to specify additional set ups, assert verify method invocations etc.
 
 ```
- [Test]
+[Test]
 public void GetOrAddWithNoSetUp_TestObject_ReturnsExpectedResult() {
     var cacheKey = "SomethingInTheCache";
     var expectedResult = new TestObject();
